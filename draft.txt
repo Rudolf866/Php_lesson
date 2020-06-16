@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p>Hello World!!!!</p>
+<?php
+echo "My first PHP script!";
+?>
+<?php
+ echo '<br> ',2+2; // => 4
+$number1 = 10;
+$_number = 10;
+$num_result =$number1 * $_number;
+$bool = true; // => 1
+echo "<br>Это число : $num_result";
+ # Comment 1
+// Comment 2
+/*
+Comment 3
+Comment 4
+Comment 5
+*/
+# -----------Запишем константу--------------------
+define("PI",3.14);
+echo '<br>',PI;
+echo defined("PI"); // =>  true = 1
+# math $i++
+ $str_1 = "first";
+ $str_2 = "second";
+ echo $str_1 ." ". $str_2; // firstsecond  .- конкенация  ." ". => first second
+$input ="<br/> <input type=\"text\" /> <input type=\"submit\" value=\"Отправить\"/>";
+echo $input;
+$x = 1;
+$y = 2;
+$z = 1;
+$bool_1 = $x == $y; // false " "
+$bool_2 = $x == $z; // true 1
+$bool_3 = $x != $y; // true 1
+$bool_4 = !($x == $y); // true 1
+$bool_5 = $x == $y || $x < $y; // true 1
+$bool_6 = $x == $z && $x > $y; // false " "
+$bool_7 = $x == $z ^ $x > $y; // true ^ false ->true ;false ^ false -> false
+if ($x == $y || $x < $y){
+    echo "<br/>Hello";
+}
+else if ($x != $y && $x <= $y){
+echo "hi";
+}
+else{
+    echo "Goodbay";
+}
+$x == $y ? $str = "Yes" : $str = "No"; // тернарный оператор
+// switch .. case
+$lab = 12;
+switch ($lab){
+    case 12: echo "<br/>Good@!";
+    break;
+    default : echo "No_good";
+}
+// -----------------Цикл for(){}------------------------
+for ($i = 0; $i < 10; $i++){
+    if ($i % 2 == 0) continue; // break;
+    echo "<br/>Цикл повториться под номером № $i <br/>";
+}
+// ------------Цикл while(){} do while()---------------
+$x = 0;
+while ($x <= 6 ){
+    if($x == 4)
+        for($i = 0; $i < 2; $i++)
+            echo "<br/>Ещё одна итерация : $i<br/>";
+    echo "<br/>Итераций от while : $x <br/>";
+    $x++;
+}
+$z = 10;
+do{
+    echo "<br/> Выполниться один раз!!!<br/>";
+    $z++;
+}while($z < 12);
+# ----------Постороение функций------------------
+function summ ($num1,$num2){
+    $result = $num1 + $num2;
+    echo "<br/>Сумма равна : $result<br/>";
+}
+function minus($number1,$number2){
+    $minusNum = $number1 - $number2;
+    return $minusNum;
+}
+function fun ($x1,$y1){
+    $res = minus($x1,$y1);
+    return $res;
+}
+
+$_minus = minus(25,7);
+summ(10,25);
+echo "<br/>Разность чисел : $_minus<br/>";
+$rec = fun(50,25);
+echo "<br/> Это функция : $rec<br/>";
+//------------Массивы -----------------
+$array = array(12,-23,"Hello",true);
+$array[0] = "Rudik";
+echo "<br/>Result array = $array[0]<br/> ";
+echo "<br/>".$array[2]."<br/>".$array[3];
+//---Добавляем в массив ----------
+$array[] = "New element";
+echo "<br/> Новый элемент массива : $array[4]<br/>";
+//-----перебор массива -------
+for ($i = 0; $i < count($array); $i++){
+    echo "<br/> Элемент массива под номером #$i: $array[$i] <br/>";
+}
+//------Ключ:значение массива------------
+$list = array("age" =>34, "name" =>"Rudolf Alexandrovich","sm" => 170,"married" => true);
+$list["age"] = 35;
+//echo getAverage(array("first" =>12,"sec" => 12, "third" => 23, "forth" =>55));
+$arr = array("first" =>12,"sec" => 12, "third" => 23, "forth" =>55);
+echo getAverage($arr); # вызов функции до её определения
+// -------foreach(массив as ключ => значение) -----------
+function getAverage ($array){
+    foreach($array as $key => $value){
+        echo "<br/>".$key." : ".$value;
+    }
+}
+// -----Многомерные массивы --------
+$array = array(array(12,-23,"Hello",true),array(1,"Hello"),array(true));
+$arr = $array[1][0];
+//-----Область видимости переменной----------
+$x = 10;
+echo "<br/> $x";// => 10
+$x = 12;
+echo "<br/> $x";// => 12
+function test(){
+    // global $x; обьявили глобальную переменную в функции
+    $GLOBALS["x"] += 7; // Глобальной переменной прибавили 7
+    $x = 0;
+    echo "<br/> $x";// => 0
+}
+test();
+echo "<br/> $x";// => 17
+//------Статическая переменная static---------
+function test_2(){
+    static $id; // запоминает значение как только его инициализируешь
+    $id++;
+    echo "<br/>".$id;// 1,2,3,4,5 без static 1,1,1,1,1
+}
+ for ($i = 0; $i < 5; $i++){
+     test_2();
+ }
+?>
+
+</body>
+</html>
+
