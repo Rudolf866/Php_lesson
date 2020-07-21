@@ -111,6 +111,10 @@ $mas3 = array(4,5,6,7,8,9,10,22,34);
 $mas4= array_slice($mas3,1,-2); #
 print_r($mas4); # Array ( [0] => 5 [1] => 6 [2] => 7 [3] => 8 [4] => 9 [5] => 10 )
 echo "<br>"."<br>";
+$product = [];
+$products = array();
+var_dump($product);
+var_dump($products);
 
 ?>
 <h1>Datetime</h1>
